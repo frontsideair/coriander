@@ -42,7 +42,8 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
         ref={triggerRef}
         onPress={() => setOpen((open) => !open)}
         style={{
-          padding: 14,
+          width: 48,
+          height: 48,
         }}
       >
         +
@@ -133,7 +134,8 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
             setData(newData);
           }}
           style={{
-            padding: 14,
+            width: 48,
+            height: 48,
           }}
         >
           🗑
