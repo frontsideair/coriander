@@ -45,6 +45,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
         style={{
           width: 32,
           height: 32,
+          borderWidth: 0,
         }}
       >
         +
@@ -107,6 +108,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
           <Button
             style={{
               padding: 0,
+              margin: 0,
               border: 0,
               background: "none",
             }}
@@ -144,6 +146,10 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
           style={{
             width: 32,
             height: 32,
+            borderWidth: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           🗑

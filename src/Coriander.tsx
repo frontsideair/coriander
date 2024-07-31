@@ -29,7 +29,7 @@ export function Coriander() {
       style={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
+        alignItems: "center",
         gap: 16,
       }}
     >
