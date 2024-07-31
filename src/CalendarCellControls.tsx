@@ -12,7 +12,9 @@ export function CalendarCellControls({ date, dateColors }: Props) {
       {({ formattedDate, isSelected }) => (
         <div
           style={{
-            backgroundColor: isSelected ? "black" : undefined,
+            backgroundColor: isSelected
+              ? "light-dark(ghostwhite, black)"
+              : undefined,
             padding: 8,
             borderRadius: 4,
           }}
@@ -35,6 +37,7 @@ export function CalendarCellControls({ date, dateColors }: Props) {
                     height: 16,
                     borderRadius: 4,
                     fontSize: 12,
+                    filter: "brightness(0.75)",
                   }}
                 />
                 <div
@@ -43,7 +46,6 @@ export function CalendarCellControls({ date, dateColors }: Props) {
                     inset: 0,
                     fontSize: 10,
                     color: "white",
-                    mixBlendMode: "difference",
                   }}
                 >
                   {count === 1 ? "" : count}

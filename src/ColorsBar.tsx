@@ -65,7 +65,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
               display: "flex",
               flexDirection: "column",
               gap: 10,
-              backgroundColor: "black",
+              backgroundColor: "light-dark(ghostwhite, black)",
               padding: 10,
               borderRadius: 4,
             }}
