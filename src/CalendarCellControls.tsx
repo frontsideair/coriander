@@ -25,7 +25,7 @@ export function CalendarCellControls({ date, dateColors }: Props) {
               flexWrap: "wrap",
               gap: 2,
               width: 46,
-              minHeight: 16,
+              minHeight: 30,
             }}
           >
             {dateColors.map(([color, count]) => (
