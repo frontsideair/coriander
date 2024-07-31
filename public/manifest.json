@@ -3,6 +3,8 @@
   "short_name": "Coriander",
   "start_url": "/",
   "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
   "icons": [
     {
       "src": "/coriander.png",
