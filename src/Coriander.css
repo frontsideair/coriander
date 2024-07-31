@@ -1,6 +1,6 @@
 .react-aria-CalendarCell {
   &[data-outside-month] {
-    display: none;
+    opacity: 50%;
   }
 }
 
