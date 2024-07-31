@@ -34,6 +34,7 @@ type Props = {
 
 export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
   const [isOpen, setOpen] = useState(false);
+  const [tooltipKey, setTooltipKey] = useState<string | null>(null);
   const triggerRef = useRef(null);
 
   return (
@@ -96,7 +97,12 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
       </Popover>
 
       {colors.map((color) => (
-        <TooltipTrigger delay={500} key={color.name}>
+        <TooltipTrigger
+          key={color.name}
+          delay={500}
+          isOpen={tooltipKey === color.name}
+          onOpenChange={(open) => setTooltipKey(open ? color.name : null)}
+        >
           <Button
             style={{
               padding: 0,
@@ -111,6 +117,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
               const newData = new Map(data);
               newData.set(dateKey, dateData);
               setData(newData);
+              setTooltipKey(color.name);
             }}
           >
             <ColorSwatch
@@ -122,7 +129,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
               }}
             />
           </Button>
-          <Tooltip>Add {color.name} to today</Tooltip>
+          <Tooltip>{color.name}</Tooltip>
         </TooltipTrigger>
       ))}
 
