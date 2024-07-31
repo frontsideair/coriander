@@ -1,0 +1,13 @@
+{
+  "name": "Coriander Tracker",
+  "short_name": "Coriander",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/coriander.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
