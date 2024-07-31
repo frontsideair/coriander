@@ -5,6 +5,7 @@ import { ColorsBar, ColorSelection } from "./ColorsBar";
 import { getLocalTimeZone, today } from "@internationalized/date";
 import useLocalStorage from "use-local-storage-state";
 import SuperJSON from "superjson";
+import { Button } from "react-aria-components";
 
 const initialColors: ColorSelection[] = [];
 
@@ -24,7 +25,14 @@ export function Coriander() {
   const [selectedDate, setSelectedDate] = useState(today(getLocalTimeZone()));
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+        gap: 16,
+      }}
+    >
       <ColorsBar
         colors={colors}
         setColors={setColors}
@@ -37,6 +45,14 @@ export function Coriander() {
         date={selectedDate}
         setSelectedDate={setSelectedDate}
       />
+      <Button
+        onPress={() => {
+          setColors([]);
+          setData(new Map());
+        }}
+      >
+        Clear all data
+      </Button>
     </div>
   );
 }
