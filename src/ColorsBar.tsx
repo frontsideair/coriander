@@ -42,8 +42,8 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
         ref={triggerRef}
         onPress={() => setOpen((open) => !open)}
         style={{
-          width: 48,
-          height: 48,
+          width: 32,
+          height: 32,
         }}
       >
         +
@@ -116,8 +116,8 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
             <ColorSwatch
               color={color.color}
               style={{
-                width: 48,
-                height: 48,
+                width: 32,
+                height: 32,
                 borderRadius: 4,
               }}
             />
@@ -134,8 +134,8 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
             setData(newData);
           }}
           style={{
-            width: 48,
-            height: 48,
+            width: 32,
+            height: 32,
           }}
         >
           🗑

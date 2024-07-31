@@ -46,3 +46,8 @@ h1 {
     background-color: #f9f9f9;
   }
 }
+
+button {
+  min-height: 24px;
+  color: light-dark(#000000, #ffffff);
+}
