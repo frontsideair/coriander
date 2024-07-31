@@ -74,11 +74,12 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
             <Heading slot="title">Add new color</Heading>
             <TextField
               name="name"
+              autoComplete="off"
               isRequired
               style={{ display: "flex", flexDirection: "column" }}
             >
               <Label>Name</Label>
-              <Input style={{ fontSize: 16 }} />
+              <Input autoCapitalize="off" style={{ fontSize: 16 }} />
             </TextField>
             <ColorSlider
               name="hue"
