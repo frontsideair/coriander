@@ -55,7 +55,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
             onSubmit={(event) => {
               event.preventDefault();
               const formData = new FormData(event.currentTarget);
-              const name = formData.get("name") as string;
+              const name = formData.get("color-name") as string;
               const hue = formData.get("hue") as string;
               const color = `hsl(${hue}, 100%, 50%)`;
               const colorSelection = { name, color };
@@ -73,7 +73,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
           >
             <Heading slot="title">Add new color</Heading>
             <TextField
-              name="name"
+              name="color-name"
               autoComplete="off"
               isRequired
               style={{ display: "flex", flexDirection: "column" }}
