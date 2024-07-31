@@ -8,16 +8,15 @@ import {
   TextField,
   Label,
   Input,
-  ColorSlider,
-  SliderOutput,
-  SliderTrack,
   ColorThumb,
   ColorSwatch,
   Heading,
   TooltipTrigger,
   Tooltip,
+  ColorArea,
 } from "react-aria-components";
 import { Data } from "./Coriander";
+import "./ColorsBar.css";
 
 export type ColorSelection = {
   color: string;
@@ -58,7 +57,8 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
               const formData = new FormData(event.currentTarget);
               const name = formData.get("color-name") as string;
               const hue = formData.get("hue") as string;
-              const color = `hsl(${hue}, 100%, 50%)`;
+              const saturation = formData.get("saturation") as string;
+              const color = `hsl(${hue}, ${saturation}%, 50%)`;
               const colorSelection = { name, color };
               setColors([colorSelection, ...colors]);
               setOpen(false);
@@ -82,17 +82,13 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
               <Label>Name</Label>
               <Input autoCapitalize="off" style={{ fontSize: 16 }} />
             </TextField>
-            <ColorSlider
-              name="hue"
-              channel="hue"
+            <ColorArea
+              xName="hue"
+              yName="saturation"
               defaultValue="hsl(0, 100%, 50%)"
             >
-              <Label />
-              <SliderOutput />
-              <SliderTrack>
-                <ColorThumb />
-              </SliderTrack>
-            </ColorSlider>
+              <ColorThumb />
+            </ColorArea>
             <Button type="submit">Add</Button>
           </Form>
         </Dialog>
