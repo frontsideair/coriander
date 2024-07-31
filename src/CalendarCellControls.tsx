@@ -15,7 +15,6 @@ export function CalendarCellControls({ date, dateColors }: Props) {
             backgroundColor: isSelected
               ? "light-dark(ghostwhite, black)"
               : undefined,
-            padding: 8,
             borderRadius: 4,
           }}
         >
@@ -23,9 +22,10 @@ export function CalendarCellControls({ date, dateColors }: Props) {
           <div
             style={{
               display: "flex",
-              gap: 4,
-              width: 76,
-              height: 16,
+              flexWrap: "wrap",
+              gap: 2,
+              width: 46,
+              minHeight: 16,
             }}
           >
             {dateColors.map(([color, count]) => (
@@ -33,8 +33,8 @@ export function CalendarCellControls({ date, dateColors }: Props) {
                 <ColorSwatch
                   color={color}
                   style={{
-                    width: 16,
-                    height: 16,
+                    width: 14,
+                    height: 14,
                     borderRadius: 4,
                     fontSize: 12,
                     filter: "brightness(0.75)",
