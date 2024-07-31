@@ -77,7 +77,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
               style={{ display: "flex", flexDirection: "column" }}
             >
               <Label>Name</Label>
-              <Input />
+              <Input style={{ fontSize: 16 }} />
             </TextField>
             <ColorSlider
               name="hue"
