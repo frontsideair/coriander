@@ -38,17 +38,20 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
 
   return (
     <div style={{ display: "flex", gap: 8 }}>
-      <Button
-        ref={triggerRef}
-        onPress={() => setOpen((open) => !open)}
-        style={{
-          width: 32,
-          height: 32,
-          borderWidth: 0,
-        }}
-      >
-        +
-      </Button>
+      <TooltipTrigger delay={500}>
+        <Button
+          ref={triggerRef}
+          onPress={() => setOpen((open) => !open)}
+          style={{
+            width: 32,
+            height: 32,
+            borderWidth: 0,
+          }}
+        >
+          +
+        </Button>
+        <Tooltip>Add a color</Tooltip>
+      </TooltipTrigger>
       <Popover triggerRef={triggerRef} isOpen={isOpen} onOpenChange={setOpen}>
         <Dialog>
           <Form
@@ -150,7 +153,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
         >
           🗑
         </Button>
-        <Tooltip>Clear today's colors</Tooltip>
+        <Tooltip>Clear currently selected day</Tooltip>
       </TooltipTrigger>
     </div>
   );
