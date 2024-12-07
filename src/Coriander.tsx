@@ -45,14 +45,30 @@ export function Coriander() {
         date={selectedDate}
         setSelectedDate={setSelectedDate}
       />
-      <Button
-        onPress={() => {
-          setColors([]);
-          setData(new Map());
-        }}
-      >
-        Clear all data
-      </Button>
+      <div style={{ display: "flex", gap: 4 }}>
+        <Button
+          onPress={() => {
+            setColors([]);
+            setData(new Map());
+          }}
+        >
+          Clear all data
+        </Button>
+        <Button
+          onPress={() => {
+            const blob = new Blob([SuperJSON.stringify({ data, colors })], {
+              type: "application/json",
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "coriander-data.json";
+            a.click();
+          }}
+        >
+          Download data
+        </Button>
+      </div>
     </div>
   );
 }
