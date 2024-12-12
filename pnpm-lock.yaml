@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@csstools/normalize.css':
+        specifier: ^12.1.1
+        version: 12.1.1
       '@internationalized/date':
         specifier: ^3.6.0
         version: 3.6.0
@@ -62,6 +65,9 @@ importers:
         version: 5.4.11
 
 packages:
+
+  '@csstools/normalize.css@12.1.1':
+    resolution: {integrity: sha512-YAYeJ+Xqh7fUou1d1j9XHl44BmsuThiTr4iNrgCQ3J27IbhXsxXDGZ1cXv8Qvs99d4rBbLiSKy3+WZiet32PcQ==}
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -1611,6 +1617,8 @@ packages:
     engines: {node: '>=10'}
 
 snapshots:
+
+  '@csstools/normalize.css@12.1.1': {}
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true
