@@ -64,7 +64,12 @@ export function ColorGridListItem({
       <MenuTrigger>
         <Button aria-label="Menu">☰</Button>
         <Popover>
-          <Menu style={{ backgroundColor: "black" }}>
+          <Menu
+            style={{
+              backgroundColor: "light-dark(white, black)",
+              border: "1px solid light-dark(black, white)",
+            }}
+          >
             <MenuItem onAction={() => setModalColor(color)}>Edit</MenuItem>
             <MenuItem
               onAction={() => {
