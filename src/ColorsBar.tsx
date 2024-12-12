@@ -39,7 +39,10 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Disclosure>
-        <div style={{ display: "flex", gap: 8, justifyContent: "center" }}>
+        <div
+          style={{ display: "flex", gap: 8, justifyContent: "center" }}
+          ref={triggerRef}
+        >
           <TooltipTrigger delay={500}>
             <Button slot="trigger">🎨</Button>
             <Tooltip>Manage colors</Tooltip>
@@ -78,13 +81,13 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
               gap: 4,
               padding: 4,
             }}
-            ref={triggerRef}
           >
             <GridListItem textValue="Add new color">
               <Button
                 onPress={() => {
                   setModalColor(true);
                 }}
+                style={{ width: "100%" }}
               >
                 Add new color
               </Button>
