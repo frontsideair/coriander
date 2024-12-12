@@ -63,14 +63,6 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
                 newData.delete(date.toString());
                 setData(newData);
               }}
-              style={{
-                width: 32,
-                height: 32,
-                borderWidth: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
             >
               🗑
             </Button>
