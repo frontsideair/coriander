@@ -1,12 +1,14 @@
 import { CalendarDate } from "@internationalized/date";
 import { CalendarCell, ColorSwatch } from "react-aria-components";
+import { ColorSelection } from "./ColorsBar";
 
 export type Props = {
   date: CalendarDate;
   dateColors: [string, number][];
+  colors: ColorSelection[];
 };
 
-export function CalendarCellControls({ date, dateColors }: Props) {
+export function CalendarCellControls({ date, dateColors, colors }: Props) {
   return (
     <CalendarCell date={date}>
       {({ formattedDate, isSelected }) => (
@@ -28,10 +30,10 @@ export function CalendarCellControls({ date, dateColors }: Props) {
               minHeight: 30,
             }}
           >
-            {dateColors.map(([color, count]) => (
-              <div key={color} style={{ position: "relative" }}>
+            {dateColors.map(([colorId, count]) => (
+              <div key={colorId} style={{ position: "relative" }}>
                 <ColorSwatch
-                  color={color}
+                  color={colors.find((color) => color.id === colorId)?.color}
                   style={{
                     width: 14,
                     height: 14,

@@ -42,7 +42,7 @@ export function ColorGridListItem({
     const offset = direction === "up" ? -1 : 1;
     setColors(
       produce((draft) => {
-        const currentColor = draft.find(({ name }) => name === color.name);
+        const currentColor = draft.find(({ id }) => id === color.id);
         if (currentColor) {
           const currentIndex = draft.indexOf(currentColor);
           if (currentIndex > 0) {
@@ -79,9 +79,7 @@ export function ColorGridListItem({
         onChange={(isSelected) => {
           setColors(
             produce((draft) => {
-              const currentColor = draft.find(
-                ({ name }) => name === color.name
-              );
+              const currentColor = draft.find(({ id }) => id === color.id);
               if (currentColor) {
                 currentColor.isFavorite = isSelected;
               }
@@ -120,7 +118,7 @@ export function ColorGridListItem({
                           key,
                           new Map(
                             [...value.entries()].filter(
-                              ([colorKey]) => colorKey !== color.color
+                              ([colorKey]) => colorKey !== color.id
                             )
                           ),
                         ];

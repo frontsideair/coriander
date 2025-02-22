@@ -41,6 +41,7 @@ export function Coriander() {
         setData={setData}
       />
       <MonthView
+        colors={colors}
         data={data}
         date={selectedDate}
         setSelectedDate={setSelectedDate}

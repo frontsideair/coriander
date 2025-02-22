@@ -16,6 +16,7 @@ import { ColorControl } from "./ColorControl";
 import { ColorGridListItem } from "./ColorGridListItem";
 
 export type ColorSelection = {
+  id: string;
   color: string;
   name: string;
   isFavorite?: boolean;

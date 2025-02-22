@@ -42,8 +42,8 @@ export function ColorControl({
         onPress={() => {
           const dateKey = date.toString();
           const dateData = data.get(dateKey) ?? new Map();
-          const count = (dateData.get(color.color) ?? 0) + 1;
-          dateData.set(color.color, count);
+          const count = (dateData.get(color.id) ?? 0) + 1;
+          dateData.set(color.id, count);
           const newData = new Map(data);
           newData.set(dateKey, dateData);
           setData(newData);
