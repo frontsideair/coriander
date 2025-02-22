@@ -16,7 +16,7 @@ import { produce } from "immer";
 import { nanoid } from "nanoid";
 
 type Props = {
-  triggerRef: React.RefObject<HTMLButtonElement>;
+  triggerRef: React.RefObject<HTMLElement | null>;
   modalColor: boolean | ColorSelection;
   setModalColor: React.Dispatch<React.SetStateAction<boolean | ColorSelection>>;
   setColors: React.Dispatch<React.SetStateAction<ColorSelection[]>>;

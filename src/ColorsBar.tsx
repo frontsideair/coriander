@@ -33,7 +33,7 @@ type Props = {
 export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
   const [tooltipKey, setTooltipKey] = useState<string | null>(null);
   const [modalColor, setModalColor] = useState<boolean | ColorSelection>(false);
-  const triggerRef = useRef(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
 
   const favoriteColors = colors.filter((color) => color.isFavorite !== false);
 
