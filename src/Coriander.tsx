@@ -5,7 +5,7 @@ import { ColorsBar, ColorSelection } from "./ColorsBar";
 import { getLocalTimeZone, today } from "@internationalized/date";
 import useLocalStorage from "use-local-storage-state";
 import SuperJSON from "superjson";
-import { Button } from "react-aria-components";
+import { Button, FileTrigger } from "react-aria-components";
 
 const initialColors: ColorSelection[] = [];
 
@@ -48,8 +48,11 @@ export function Coriander() {
       <div style={{ display: "flex", gap: 4 }}>
         <Button
           onPress={() => {
-            setColors([]);
-            setData(new Map());
+            const confirmed = confirm("Are you sure?");
+            if (confirmed) {
+              setColors([]);
+              setData(new Map());
+            }
           }}
         >
           Clear all data
@@ -68,6 +71,24 @@ export function Coriander() {
         >
           Download data
         </Button>
+        <FileTrigger
+          onSelect={(fileList) => {
+            const file = fileList?.[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+              const data = SuperJSON.parse<{
+                data: Data;
+                colors: ColorSelection[];
+              }>(reader.result as string);
+              setData(data.data);
+              setColors(data.colors);
+            };
+            reader.readAsText(file);
+          }}
+        >
+          <Button>Upload data</Button>
+        </FileTrigger>
       </div>
     </div>
   );
