@@ -1,7 +1,6 @@
 import {
   Button,
   Popover,
-  ColorSwatch,
   GridListItem,
   MenuTrigger,
   Menu,
@@ -15,6 +14,8 @@ import { ColorControl } from "./ColorControl";
 import { CalendarDate } from "@internationalized/date";
 
 type Props = {
+  isFirst: boolean;
+  isLast: boolean;
   color: ColorSelection;
   setColors: React.Dispatch<React.SetStateAction<ColorSelection[]>>;
   setModalColor: React.Dispatch<React.SetStateAction<boolean | ColorSelection>>;
@@ -26,6 +27,8 @@ type Props = {
 };
 
 export function ColorGridListItem({
+  isFirst,
+  isLast,
   color,
   setColors,
   setModalColor,
@@ -35,6 +38,22 @@ export function ColorGridListItem({
   date,
   data,
 }: Props) {
+  function moveColor(direction: "up" | "down") {
+    const offset = direction === "up" ? -1 : 1;
+    setColors(
+      produce((draft) => {
+        const currentColor = draft.find(({ name }) => name === color.name);
+        if (currentColor) {
+          const currentIndex = draft.indexOf(currentColor);
+          if (currentIndex > 0) {
+            draft[currentIndex] = draft[currentIndex + offset];
+            draft[currentIndex + offset] = currentColor;
+          }
+        }
+      })
+    );
+  }
+
   return (
     <GridListItem
       textValue={color.name}
@@ -81,6 +100,12 @@ export function ColorGridListItem({
               border: "1px solid light-dark(black, white)",
             }}
           >
+            <MenuItem isDisabled={isFirst} onAction={() => moveColor("up")}>
+              Move up
+            </MenuItem>
+            <MenuItem isDisabled={isLast} onAction={() => moveColor("down")}>
+              Move down
+            </MenuItem>
             <MenuItem onAction={() => setModalColor(color)}>Edit</MenuItem>
             <MenuItem
               onAction={() => {

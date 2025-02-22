@@ -92,8 +92,10 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
                 Add new color
               </Button>
             </GridListItem>
-            {colors.map((color) => (
+            {colors.map((color, index) => (
               <ColorGridListItem
+                isFirst={index === 0}
+                isLast={index === colors.length - 1}
                 key={color.name}
                 color={color}
                 setColors={setColors}
