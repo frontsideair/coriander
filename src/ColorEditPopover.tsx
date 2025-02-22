@@ -12,7 +12,7 @@ import {
   ColorArea,
 } from "react-aria-components";
 import { ColorSelection } from "./ColorsBar";
-import { current, produce } from "immer";
+import { produce } from "immer";
 import { nanoid } from "nanoid";
 
 type Props = {
