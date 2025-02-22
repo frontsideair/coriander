@@ -52,6 +52,7 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
             <ColorControl
               key={color.name}
               color={color}
+              tooltipKeyPrefix="favorites"
               tooltipKey={tooltipKey}
               setTooltipKey={setTooltipKey}
               date={date}

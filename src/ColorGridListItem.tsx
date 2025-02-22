@@ -67,6 +67,7 @@ export function ColorGridListItem({
       <ColorControl
         key={color.name}
         color={color}
+        tooltipKeyPrefix="all"
         tooltipKey={tooltipKey}
         setTooltipKey={setTooltipKey}
         date={date}

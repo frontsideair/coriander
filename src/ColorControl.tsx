@@ -10,6 +10,7 @@ import { Data } from "./Coriander";
 
 type Props = {
   color: ColorSelection;
+  tooltipKeyPrefix: string;
   tooltipKey: string | null;
   setTooltipKey: (key: string | null) => void;
   date: CalendarDate;
@@ -19,6 +20,7 @@ type Props = {
 
 export function ColorControl({
   color,
+  tooltipKeyPrefix,
   tooltipKey,
   setTooltipKey,
   date,
@@ -29,8 +31,10 @@ export function ColorControl({
     <TooltipTrigger
       key={color.name}
       delay={500}
-      isOpen={tooltipKey === color.name}
-      onOpenChange={(open) => setTooltipKey(open ? color.name : null)}
+      isOpen={tooltipKey === `${tooltipKeyPrefix}-${color.name}`}
+      onOpenChange={(open) =>
+        setTooltipKey(open ? `${tooltipKeyPrefix}-${color.name}` : null)
+      }
     >
       <Button
         style={{
@@ -47,7 +51,7 @@ export function ColorControl({
           const newData = new Map(data);
           newData.set(dateKey, dateData);
           setData(newData);
-          setTooltipKey(color.name);
+          setTooltipKey(`${tooltipKeyPrefix}-${color.name}`);
         }}
       >
         <ColorSwatch
