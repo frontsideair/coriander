@@ -10,13 +10,6 @@ function App() {
         <I18nProvider locale="en-TR">
           <Coriander />
         </I18nProvider>
-        <a
-          href="https://www.flaticon.com/free-icons/coriander"
-          title="coriander icons"
-          style={{ fontSize: 10 }}
-        >
-          Coriander icons created by Freepik - Flaticon
-        </a>
       </div>
     </>
   );
