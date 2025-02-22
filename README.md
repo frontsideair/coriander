@@ -4,7 +4,7 @@ This project is for tracking habits, or whatever you like. It's a color calendar
 
 ## Usage
 
-Use the plus button to add a color. Pick a date. Use colors you created to color the selected date. If you want to clear a date, use the trash button. If you mess it up too much, use the button at the bottom to clear everything. You can't edit or delete colors.
+Use the palette button to add a color. Pick a date. Use colors you created to color the selected date. If you want to clear a date, use the trash button. If you mess it up too much, use the button at the bottom to clear everything.
 
 ## Stack
 
