@@ -99,6 +99,10 @@ export function ColorsBar({ colors, setColors, date, data, setData }: Props) {
                 setColors={setColors}
                 setModalColor={setModalColor}
                 setData={setData}
+                tooltipKey={tooltipKey}
+                setTooltipKey={setTooltipKey}
+                date={date}
+                data={data}
               />
             ))}
           </GridList>

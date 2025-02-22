@@ -11,12 +11,18 @@ import {
 import { produce } from "immer";
 import { ColorSelection } from "./ColorsBar";
 import { Data } from "./Coriander";
+import { ColorControl } from "./ColorControl";
+import { CalendarDate } from "@internationalized/date";
 
 type Props = {
   color: ColorSelection;
   setColors: React.Dispatch<React.SetStateAction<ColorSelection[]>>;
   setModalColor: React.Dispatch<React.SetStateAction<boolean | ColorSelection>>;
   setData: React.Dispatch<React.SetStateAction<Data>>;
+  tooltipKey: string | null;
+  setTooltipKey: (key: string | null) => void;
+  date: CalendarDate;
+  data: Data;
 };
 
 export function ColorGridListItem({
@@ -24,6 +30,10 @@ export function ColorGridListItem({
   setColors,
   setModalColor,
   setData,
+  tooltipKey,
+  setTooltipKey,
+  date,
+  data,
 }: Props) {
   return (
     <GridListItem
@@ -35,13 +45,14 @@ export function ColorGridListItem({
         alignItems: "center",
       }}
     >
-      <ColorSwatch
-        color={color.color}
-        style={{
-          width: 32,
-          height: 32,
-          borderRadius: "100%",
-        }}
+      <ColorControl
+        key={color.name}
+        color={color}
+        tooltipKey={tooltipKey}
+        setTooltipKey={setTooltipKey}
+        date={date}
+        data={data}
+        setData={setData}
       />
       <div style={{ flexGrow: 1, textAlign: "left" }}>{color.name}</div>
       <ToggleButton
