@@ -10,6 +10,16 @@ function App() {
         <I18nProvider locale="en-TR">
           <Coriander />
         </I18nProvider>
+        <footer style={{ fontSize: 10, marginTop: 10 }}>
+          Find the code on{" "}
+          <a
+            href="https://github.com/frontsideair/coriander"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </footer>
       </div>
     </>
   );
